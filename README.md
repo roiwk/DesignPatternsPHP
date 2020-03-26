@@ -1,16 +1,16 @@
 # 描述
 
- 记录学习并实现php设计模式的过程。 [Github Page](https://roiwk.github.io/DesignPatternsPHP/)
+记录学习并实现php设计模式的过程。 [Github Page](https://roiwk.github.io/DesignPatternsPHP/)
 
-# 计划
+ 1. 先实现所有模式的示例
+ 2. 再用uml图做图示
 
-# 创建型
+## 创建型
 
-- [ ] 工厂模式
-- [ ] 建造者模式
+- [x] 简单工厂模式
 - [ ] 抽象工厂模式
-- [ ] 简单工厂模式
 - [ ] 静态工厂模式
+- [ ] 建造者模式
 - [ ] 对象池模式
 - [ ] 单例模式
 - [ ] 原型模式
