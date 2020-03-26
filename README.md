@@ -1,9 +1,6 @@
-# DesignPatternsPHP
-sample code for several design patterns in PHP 7.
-
 # 描述
 
- 记录学习并实现php设计模式的过程。
+ 记录学习并实现php设计模式的过程。 [Github Page](https://roiwk.github.io/DesignPatternsPHP/)
 
 # 计划
 
