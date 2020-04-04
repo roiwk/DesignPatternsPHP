@@ -1,9 +1,6 @@
 # 描述
 
-记录学习并实现php设计模式的过程。 [Github Page](https://roiwk.github.io/DesignPatternsPHP/)
-
- 1. 先实现所有模式的示例
- 2. 再用uml图做图示
+记录用php实现设计模式。 [Github Page](https://roiwk.github.io/DesignPatternsPHP/)
 
 ## [创建型](./Creational/README.md)
 
@@ -15,9 +12,9 @@
 - [x] 单例模式
 - [x] 原型模式
 
-## 结构型
+## [结构型](./Structural/README.md)
 
-- [ ] 适配器模式
+- [x] 适配器模式
 - [ ] 桥接模式
 - [ ] 组合模式
 - [ ] 过滤器模式
