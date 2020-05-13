@@ -15,10 +15,11 @@ use PHPUnit\Framework\TestCase;
 
 class CompositeTest extends TestCase
 {
+    protected $persons;
 
-    private function getMockPersons(): array
+    protected function setUp(): void
     {
-        return [
+        $this->persons = [
             new Person('a', Person::MALE_STR, Person::MARRIED_STR, Person::ADULT_STR),
             new Person('b', Person::FEMALE_STR, Person::SINGLE_STR, Person::MINOR_STR),
             new Person('c', Person::FEMALE_STR, Person::SINGLE_STR, Person::ADULT_STR),
@@ -30,24 +31,45 @@ class CompositeTest extends TestCase
 
     public function testFilterAdultSingleFemale()
     {
-        $persons = $this->getMockPersons();
         $adultFilter = new AdultFilter();
         $singleFilter = new SingleFilter();
         $femaleFilter = new FemaleFilter();
         $AndFilter = new AndFilter($adultFilter, $singleFilter, $femaleFilter);
+        $result = $AndFilter->filter($this->persons);
 
-        $this->assertSame('c', $AndFilter->filter($persons)[0]->getName());
+        $this->assertEquals(new Person('c', Person::FEMALE_STR, Person::SINGLE_STR, Person::ADULT_STR), array_pop($result));
+        $this->assertTrue(empty($result));
     }
 
     public function testFilterMinorSingleMale()
     {
-        $persons = $this->getMockPersons();
         $minorFilter = new MinorFilter();
         $singleFilter = new SingleFilter();
         $maleFilter = new MaleFilter();
         $AndFilter = new AndFilter($minorFilter, $singleFilter, $maleFilter);
+        $result = $AndFilter->filter($this->persons);
 
-        $this->assertSame('f', $AndFilter->filter($persons)[0]->getName());
+        $this->assertEquals(new Person('f', Person::MALE_STR, Person::SINGLE_STR, Person::MINOR_STR), array_pop($result));
+        $this->assertTrue(empty($result));
+    }
+
+    public function testMinorOrFemale()
+    {
+        $minorFilter = new MinorFilter();
+        $femaleFilter = new FemaleFilter();
+        $OrFilter = new OrFilter($minorFilter, $femaleFilter);
+        $result = $OrFilter->filter($this->persons);
+        array_multisort($result);
+
+        $assert = [
+            new Person('b', Person::FEMALE_STR, Person::SINGLE_STR, Person::MINOR_STR),
+            new Person('c', Person::FEMALE_STR, Person::SINGLE_STR, Person::ADULT_STR),
+            new Person('d', Person::FEMALE_STR, Person::MARRIED_STR, Person::ADULT_STR),
+            new Person('f', Person::MALE_STR, Person::SINGLE_STR, Person::MINOR_STR),
+        ];
+        array_multisort($assert);
+
+        $this->assertEquals($assert, $result);
     }
 
 }
