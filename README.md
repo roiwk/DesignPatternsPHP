@@ -24,7 +24,7 @@
 - [x] 代理模式
 - [ ] 数据映射
 - [ ] 依赖注入
-- [ ] 流利接口（Fluent Interface）
+- [x] 流式接口（Fluent Interface）
 
 ## 行为型
 
