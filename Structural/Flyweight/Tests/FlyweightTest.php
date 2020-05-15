@@ -3,7 +3,6 @@
 namespace Structural\Flyweight\Tests;
 
 use PHPUnit\Framework\TestCase;
-use stdClass;
 use Structural\Flyweight\GenerateFactory;
 use Structural\Flyweight\Ball;
 
