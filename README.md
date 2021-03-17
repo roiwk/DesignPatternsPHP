@@ -35,7 +35,7 @@
 - [x] 备忘录模式
 - [x] 观察者模式
 - [x] 空对象模式
-- [ ] 状态模式
+- [x] 状态模式
 - [ ] 策略模式
 - [ ] 模板模式
 - [ ] 访问者模式
@@ -48,5 +48,3 @@
 - [ ] 实体-属性-值（EAV）
 
 > 设计模式借鉴 [菜鸟教程](https://www.runoob.com/design-pattern/design-pattern-intro.html) , [DesignPatternsPHP](https://github.com/domnikl/DesignPatternsPHP)
->
-> uml借鉴 [plantuml](http://plantuml.com/)
